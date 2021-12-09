@@ -1,5 +1,6 @@
 from django.http.request import HttpRequest
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.http import JsonResponse
 import json
 import datetime
@@ -125,7 +126,10 @@ def contact(request):
 				send_mail(subject, message, 'admin@example.com', ['admin@example.com']) 
 			except BadHeaderError:
 				return HttpResponse('Invalid header found.')
-			return redirect ("main:homepage")
+			return redirect ("success")
       
 	form = ContactForm()
-	return render(request, "main/contact.html", {'form':form})
+	return render(request, "store/contact.html", {'form':form})
+
+def successView(request):
+    return render(request, 'store/success.html')
