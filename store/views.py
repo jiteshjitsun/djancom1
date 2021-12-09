@@ -1,3 +1,4 @@
+from django.http.request import HttpRequest
 from django.shortcuts import render
 from django.http import JsonResponse
 import json
@@ -7,6 +8,8 @@ from .utils import cookieCart, cartData, guestOrder
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
+from .forms import ContactForm
+from django.core.mail import send_mail, BadHeaderError
 
 def store(request):
 	data = cartData(request)
@@ -98,3 +101,31 @@ class SignUp(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy("login")
     template_name = "registration/signup.html"
+
+def about(request):
+	return render(request, "store/about.html")
+
+# def contact(request):
+# 	return render(request,"store/contact.html")
+
+def contact(request):
+	if request.method == 'POST':
+		form = ContactForm(request.POST)
+		if form.is_valid():
+			subject = "Website Inquiry" 
+			body = {
+			'first_name': form.cleaned_data['first_name'], 
+			'last_name': form.cleaned_data['last_name'], 
+			'email': form.cleaned_data['email_address'], 
+			'message':form.cleaned_data['message'], 
+			}
+			message = "\n".join(body.values())
+
+			try:
+				send_mail(subject, message, 'admin@example.com', ['admin@example.com']) 
+			except BadHeaderError:
+				return HttpResponse('Invalid header found.')
+			return redirect ("main:homepage")
+      
+	form = ContactForm()
+	return render(request, "main/contact.html", {'form':form})

@@ -1,6 +1,31 @@
 {% extends 'store/main.html' %}
 {% load static %}
 {% block content %}
+
+	<!-- crousel comes here! -->
+	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner">
+		  <div class="carousel-item active" style="height: 450px;">
+			<img class="d-block w-100" src="{% static 'images/20% OFF.png' %}" alt="First slide">
+		  </div>
+		  <div class="carousel-item" style="height: 450px;">
+			<img class="d-block w-100" src="{% static 'images/20% OFF (2).png' %}" alt="Second slide">
+		  </div>
+		  <div class="carousel-item" style="height: 450px;">
+			<img class="d-block w-100" src="{% static 'images/20% OFF (1).png' %}" alt="Third slide">
+		  </div>
+		</div>
+		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+		  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		  <span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+		  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		  <span class="sr-only">Next</span>
+		</a>
+	  </div>
+	<!-- crousel ends here -->
+	<hr style="font-weight: 500;">
 	<div class="row" style="border-radius: 22px;">
 		{% for product in products %}
 		<div class="col-lg-4" style="float: inline-end; box-shadow: aqua; border-radius: 212px;">
