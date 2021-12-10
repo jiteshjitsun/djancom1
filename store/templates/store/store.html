@@ -4,15 +4,15 @@
 
 	<!-- crousel comes here! -->
 	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-		<div class="carousel-inner">
+		<div class="carousel-inner">	
 		  <div class="carousel-item active" style="height: 450px;">
-			<img class="d-block w-100" src="{% static 'images/20% OFF.png' %}" alt="First slide">
+			<img  class="d-block w-100" src="{% static 'images/20% OFF.png' %}" alt="First slide">
 		  </div>
 		  <div class="carousel-item" style="height: 450px;">
-			<img class="d-block w-100" src="{% static 'images/20% OFF (2).png' %}" alt="Second slide">
+			<img style="border-radius: 22px;" class="d-block w-100" src="{% static 'images/20% OFF (2).png' %}" alt="Second slide">
 		  </div>
 		  <div class="carousel-item" style="height: 450px;">
-			<img class="d-block w-100" src="{% static 'images/20% OFF (1).png' %}" alt="Third slide">
+			<img style="border-radius: 22px;" class="d-block w-100" src="{% static 'images/20% OFF (1).png' %}" alt="Third slide">
 		  </div>
 		</div>
 		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -26,12 +26,12 @@
 	  </div>
 	<!-- crousel ends here -->
 	<hr style="font-weight: 500;">
-	<div class="row" style="border-radius: 22px;">
+	<div class="row">
 		{% for product in products %}
-		<div class="col-lg-4" style="float: inline-end; box-shadow: aqua; border-radius: 212px;">
-			<img class="thumbnail" src="{{product.imageURL}}"  style="border-radius: 22px;">
+		<div class="col-lg-4" style="float: inline-end; box-shadow: aqua; ">
+			<img class="thumbnail" src="{{product.imageURL}}"  style="border-top-left-radius: 22px; border-top-right-radius: 22px;">
 			
-			<div class="box-element product" style="border-radius: 22px;">
+			<div class="box-element product" style="border-bottom-left-radius: 22px; border-bottom-right-radius: 22px;">
 				<br>
 				<h6><strong>{{product.name}}</strong></h6>
 				<hr>
