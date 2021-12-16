@@ -133,3 +133,8 @@ def contact(request):
 
 def successView(request):
     return render(request, 'store/success.html')
+
+def productdetail(request,id):
+    product = Product.objects.get(id = id)
+    return render(request, 'store/view.html', {'product': product})
+	

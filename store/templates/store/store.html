@@ -40,7 +40,7 @@
 				{% else %}
 				<p>please login to add product</p>
 				{% endif %}
-				<a class="btn btn-outline-success" href="#" style="border-radius: 22px;">View</a>
+				<a class="btn btn-outline-success" href="{% url 'productdetail' product.id %}" style="border-radius: 22px;">View</a>
 				<h4 style="display: inline-block; float: right"><strong>Rs.{{product.price}}</strong></h4>
 				
 			</div>
